@@ -73,7 +73,21 @@
 
 
 <body>
+    <!-- Connect to XAMPP local server -->
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $databasename = "leadership";
 
+        $db = new mysqli($servername, $username, $password, $databasename);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Wrong!";
+            exit;
+        }
+    ?>
     <header>
         <nav class="navbar navbar-default bootsnav nav-box-width navbar-top on menu-center no-full">
             <div class="container-fluid nav-header-container">
@@ -89,7 +103,7 @@
                     <!-- Menu Bar -->
                     <div class="col-lg-8 col-md-10 col-xs-4 accordion-menu xs-no-padding-right">
                         <!-- Hamburger Menu -->
-                        <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
                             <span class="sr-only">toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -99,13 +113,15 @@
                         <div align="right" style="padding: 0;">
                             <div class="navbar-collapse collapse" id="navbar-collapse-toggle-1">
                                 <ul id="accordion" class="nav navbar-nav navbar-center no-margin" data-in="fadeIn" data-out="fadeOut">
-                                    <li class="dropdown simple-dropdown"><a href="http://pd4phd.engineering.nyu.edu/tracks">Tracks</a>
+                                    <li class="dropdown simple-dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/tracks">Tracks</a>
                                         <ul class="dropdown-menu animated" role="menu" style="top: 72px;">
                                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/tracks/digital-literacy.php">Digital Literacy for Research</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="http://pd4phd.engineering.nyu.edu/schedule">Schedule</a></li>
-                                    <li class="dropdown simple-dropdown"><a href="http://pd4phd.engineering.nyu.edu/archive">Archive</a>
+
+                                    <li class="dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/schedule">Schedule</a></li>
+                                    
+                                    <li class="dropdown simple-dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/archive">Archive</a>
                                         <ul class="dropdown-menu animated" role="menu" style="top: 72px;">
                                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/mentoring-dissertation.php">Mentoring and Dissertation</a></li>
                                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/leadership.php">Leadership Workshop</a></li>
@@ -114,7 +130,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="dropdown"><a href="http://pd4phd.engineering.nyu.edu/contact">Contact</a></li>
+                                    <li class="dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/contact">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -144,120 +160,140 @@
     <!-- Workshops -->
     <section class="wow fadeIn padding-100px-tb" style="visibility: visible; animation-name: fadeIn;">
         <div class="container">
+            <!-- Title -->
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12 text-center center-col">
-                    <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray">Leadership Workshops</h3>
+                    <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray" style="margin-bottom: 30px;">Leadership Workshops</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="container">
-                    <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="blog-post bg-white">
-                            <div class="blog-post-images overflow-hidden">
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank">
-                                    <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
-                                </a>
-                            </div>
-                            <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                <div class="blog-hover-color"></div>
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Effective Negotiations</a>
-                                <div class="author">
-                                    <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
+            <!-- Two columns in a table -->
+            <table>
+                <tr class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <td class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+                        <!-- Column 1: Workshops -->
+                        <h5 style="padding-left: 15px;">Scheduled Workshops</h5>
+                        <?php
+                            
+                        ?>
+                        <div class="row">
+                            <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                                    <div class="blog-post bg-white">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank">
+                                                <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
+                                            </a>
+                                        </div>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Effective Negotiations</a>
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
+                                            </div>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-20px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                <div class="margin-20px-top" align="center">
-                                    <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                                    <div class="blog-post bg-white">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank">
+                                                <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
+                                            </a>
+                                        </div>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Storytelling to Land Your Job and Grant</a>
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Ms. Dasha Rettew</a></span>
+                                            </div>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> October 12 &amp; 26, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-20px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="blog-post bg-white">
-                            <div class="blog-post-images overflow-hidden">
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank">
-                                    <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
-                                </a>
-                            </div>
-                            <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                <div class="blog-hover-color"></div>
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Storytelling to Land Your Job and Grant</a>
-                                <div class="author">
-                                    <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Ms. Dasha Rettew</a></span>
+                        <h5 style="padding-left: 15px;">Coming Soon</h5>
+                        <div class="row">
+                            <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
+                                    <div class="blog-post bg-white">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank">
+                                                <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
+                                            </a>
+                                        </div>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Decision Making and Leadership</a>
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Justin G. Bull</a></span>
+                                            </div>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> November 9 &amp; 23, 2021 <br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-20px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                <p align="justify"><strong>Date:</strong> October 12 &amp; 26, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                <div class="margin-20px-top" align="center">
-                                    <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container">
-                    <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                        <div class="blog-post bg-white">
-                            <div class="blog-post-images overflow-hidden">
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank">
-                                    <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
-                                </a>
-                            </div>
-                            <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                <div class="blog-hover-color"></div>
-                                <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Decision Making and Leadership</a>
-                                <div class="author">
-                                    <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Justin G. Bull</a></span>
-                                </div>
-                                <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                <p align="justify"><strong>Date:</strong> November 9 &amp; 23, 2021 <br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                <div class="margin-20px-top" align="center">
-                                    <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                        <div class="blog-post bg-white">
-                            <div class="blog-post-images overflow-hidden">
-                                <a href="javascript:void(0);" target="_blank">
-                                    <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
-                                </a>
-                            </div>
-                            <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                <div class="blog-hover-color"></div>
-                                <a href="javascript:void(0);" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Coming Soon!</a>
-                                <div class="author">
-                                    <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">NYU Tandon </a></span>
-                                </div>
-                                <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                <p align="justify"><strong>Date:</strong> December 7 &amp; 21, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                <div class="margin-20px-top" align="center">
-                                    <a href="javascript:void(0);" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled" target="_blank">Brochure</a>
+                                <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
+                                    <div class="blog-post bg-white">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="javascript:void(0);" target="_blank">
+                                                <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
+                                            </a>
+                                        </div>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            <a href="javascript:void(0);" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Coming Soon!</a>
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">NYU Tandon </a></span>
+                                            </div>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> December 7 &amp; 21, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-20px-top" align="center">
+                                                <a href="javascript:void(0);" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled" target="_blank">Brochure</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row margin-30px-top">
-                <div class="col-md-10 col-sm-12 center-col">
-                    <div class="alert alert-info alert-dismissable">
-                        <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                        <p align="justify"><strong>Kindly note: </strong>
-                        </p>
-                        <ul>
-                            <li>The students will need to attend all the workshops in the track they choose.</li>
-                            <li>Registration limited to first 50 doctoral students.</li>
-                        </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row margin-30px-top">
-                <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register <i class="fas fa-arrow-right"></i></a></div>
-            </div>
+                    </td>
+                    <td class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="vertical-align: top;">
+                        <!-- Column 2: Inner page links, Notification, and Register -->
+                        <div class="row margin-30px-top">
+                            <div class="col-md-10 col-sm-12 center-col">
+                                <div class="alert alert-info alert-dismissable">
+                                    <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                    <p align="justify"><strong>Kindly note: </strong>
+                                    </p>
+                                    <ul>
+                                        <li>The students will need to attend all the workshops in the track they choose.</li>
+                                        <li>Registration limited to first 50 doctoral students.</li>
+                                    </ul>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Register -->
+                        <div class="row margin-30px-top">
+                            <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register</a></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
         </div>
     </section>
 
@@ -273,8 +309,8 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 widget padding-45px-left sm-padding-15px-left xs-text-center" style="height: 200px;">
                         <div align="center">
                             <div class="widget-title alt-font text-extra-dark-gray text-uppercase margin-20px-bottom font-weight-600">Contact</div>
-                            <div class=" display-block width-80 xs-center-col">Tandon School of Engineering<br>New York University<br>6 MetroTech Center<br>Brooklyn, NY 11201</div>
-                            <div class="display-block width-80 xs-center-col"><strong>Phone:</strong> +1 (646) 997 - 3600</div>
+                            <div class=" display-block width-80">Tandon School of Engineering<br>New York University<br>6 MetroTech Center<br>Brooklyn, NY 11201</div>
+                            <div class="display-block width-80"><strong>Phone:</strong> +1 (646) 997 - 3600</div>
                         </div>
                     </div>
                 </div>
