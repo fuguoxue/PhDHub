@@ -26,7 +26,7 @@ insert into workshops values (
     "Storytelling to Land Your Job and Grant", "MS. DASHA RETTEW", "October 12 & 26, 2021", "12 - 2 PM", "NYU Zoom", "./images/workshop.jpg", "http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf", "Scheduled"
 );
 insert into workshops values (
-    "Decision Making and Leadership", "PROF. JUSTIN G. BULL", "November 9 & 23, 2021", "12 - 2 PM", "NYU Zoom", "./images/workshop.jpg", "http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf", "Scheduled"
+    "Decision Making and Leadership", "PROF. JUSTIN G. BULL", "November 9 & 23, 2021", "12 - 2 PM", "NYU Zoom", "./images/workshop.jpg", "http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf", "Scheduled"
 );
 insert into workshops values (
     "Coming Soon!", "NYU TANDON", "December 7 & 21, 2021", "12 - 2 PM", "NYU Zoom", "./images/workshop.jpg", "", "Upcoming"

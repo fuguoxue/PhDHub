@@ -2480,7 +2480,7 @@ nav.navbar.bootsnav.menu-center ul.nav.navbar-center { display: table; float: no
 nav.navbar.bootsnav .simple-dropdown .dropdown-menu > li { padding-left: 28px; padding-right: 28px;}
 .simple-dropdown .dropdown-menu > li > a {font-size: 12px; color: #fff; }
 .simple-dropdown .dropdown-menu > li a { padding: 9px 0 7px; overflow: hidden; position: relative; left: 0; font-weight: 500; }
-.simple-dropdown .dropdown-menu > li a:hover { background-color: #000; color: #fff;}
+.simple-dropdown .dropdown-menu > li a:hover { color: #fff;}
 .simple-dropdown .dropdown-menu > li > a.dropdown-toggle .fas, nav.navbar.bootsnav.sidebar-nav .nav.navbar-left-sidebar li.dropdown > a > .fas {position: absolute; right: 0; font-size: 12px; margin-top: 0; height: 20px; width: 20px; line-height: 20px; text-align: center; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%);}
 nav.navbar.bootsnav.sidebar-nav .nav.navbar-left-sidebar li a .fas {font-size: 16px;}
 nav.navbar.bootsnav .simple-dropdown .dropdown-menu > li.dropdown > ul,nav.navbar.bootsnav .simple-dropdown .dropdown-menu > li.dropdown > ul > li.dropdown > ul  {background: #330662; display: none; left: 220px; margin: -13px 0 0 1px; min-width: 220px; white-space: nowrap; position: absolute; top: 0; padding: 13px 0; font-weight: 500; text-transform: capitalize;}
@@ -2615,7 +2615,7 @@ nav.navbar.navbar-default ul.nav > li.dropdown > a.dropdown-toggle::after, nav.n
 nav.navbar.navbar-default ul li.dropdown ul.dropdown-menu > li:last-child {border-bottom: 0; border-bottom: 0;}
 nav.navbar.navbar-default ul li.dropdown .dropdown-menu li > a:hover  {color: #fff; background:  transparent; left: 5px; }
 nav.navbar.navbar-default ul li.dropdown .dropdown-menu li.active > a { color: #fff;}
-nav.navbar.navbar-default ul.menu-links li.dropdown ul.dropdown-menu li > a:hover, nav.navbar.navbar-default ul.menu-links li.dropdown ul.dropdown-menu li.active > a {color: #232323}
+/* nav.navbar.navbar-default ul.menu-links li.dropdown ul.dropdown-menu li > a:hover, nav.navbar.navbar-default ul.menu-links li.dropdown ul.dropdown-menu li.active > a {color: #232323} */
 .dropdown ul.second-level {left: 270px; top:0; height: 100%;}
 .dropdown ul.third-level {left: 530px; top:0; height: 100%;}
 nav.navbar ul.nav .dropdown-menu.second-level .dropdown-menu {margin-top: 0 }
@@ -4374,3 +4374,6 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
 .link:hover {
 	color: #6f6f6f !important;
 }
+
+.internal-link-list ul > li a { font-size: 20px;}
+.internal-link-list ul {padding-left: 15px;}
