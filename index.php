@@ -8,7 +8,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Professional Development for PhD Students | NYU Tandon School of Engineering</title>
+    <title>Leadership Workshops - Professional Development for PhD Students | NYU Tandon School of Engineering</title>
 
     <!--Favicon-->
     <link rel="icon" type="image/gif" href="http://pd4phd.engineering.nyu.edu/images/favicon.png">
@@ -75,18 +75,18 @@
 <body>
     <!-- Connect to XAMPP local server -->
     <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $databasename = "leadership";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $databasename = "leadership";
 
-        $db = new mysqli($servername, $username, $password, $databasename);
+    $db = new mysqli($servername, $username, $password, $databasename);
 
-        // Check connection
-        if (mysqli_connect_errno()) {
-            echo "Wrong!";
-            exit;
-        }
+    // Check connection
+    if (mysqli_connect_errno()) {
+        echo "Wrong!";
+        exit;
+    }
     ?>
     <header>
         <nav class="navbar navbar-default bootsnav nav-box-width navbar-top on menu-center no-full">
@@ -101,7 +101,7 @@
                         <a href="https://engineering.nyu.edu/" title="NYU Tandon School of Engineering" class="logo" target="_blank"><img src="./images/logo.png" class="logo-light default" alt="NYU Tandon School of Engineering" data-no-retina=""></a>
                     </div>
                     <!-- Menu Bar -->
-                    <div class="col-lg-8 col-md-10 col-xs-4 accordion-menu xs-no-padding-right">
+                    <div class="col-lg-8 col-md-10 col-xs-4 accordion-menu xs-no-padding-right" style="padding-right: 0;">
                         <!-- Hamburger Menu -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
                             <span class="sr-only">toggle navigation</span>
@@ -113,20 +113,21 @@
                         <div align="right" style="padding: 0;">
                             <div class="navbar-collapse collapse" id="navbar-collapse-toggle-1">
                                 <ul id="accordion" class="nav navbar-nav navbar-center no-margin" data-in="fadeIn" data-out="fadeOut">
-                                    <li class="dropdown simple-dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/tracks">Tracks</a>
-                                        <ul class="dropdown-menu animated" role="menu" style="top: 72px;">
-                                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/tracks/digital-literacy.php">Digital Literacy for Research</a></li>
+                                    <li class="dropdown simple-dropdown" style="text-align:center;">
+                                        <a href="http://pd4phd.engineering.nyu.edu/tracks">Tracks<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu" style="top: 72px;">
+                                            <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/tracks/digital-literacy.php">Digital Literacy for Research</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/schedule">Schedule</a></li>
-                                    
-                                    <li class="dropdown simple-dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/archive">Archive</a>
-                                        <ul class="dropdown-menu animated" role="menu" style="top: 72px;">
-                                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/mentoring-dissertation.php">Mentoring and Dissertation</a></li>
-                                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/leadership.php">Leadership Workshop</a></li>
-                                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/digital-literacy.php">Digital Literacy</a></li>
-                                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/teamwork.php">Teamwork</a></li>
+
+                                    <li class="dropdown simple-dropdown" style="text-align:center;"><a href="http://pd4phd.engineering.nyu.edu/archive">Archive<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu" style="top: 72px;">
+                                            <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/mentoring-dissertation.php">Mentoring and Dissertation</a></li>
+                                            <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/leadership.php">Leadership Workshop</a></li>
+                                            <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/digital-literacy.php">Digital Literacy</a></li>
+                                            <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/archive/teamwork.php">Teamwork</a></li>
                                         </ul>
                                     </li>
 
@@ -163,7 +164,7 @@
             <!-- Title -->
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12 text-center center-col">
-                    <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray" style="margin-bottom: 30px;">Leadership Workshops</h3>
+                    <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray" style="margin-bottom: 50px;">Leadership Workshops</h3>
                 </div>
             </div>
             <!-- Two columns in a table -->
@@ -171,11 +172,112 @@
                 <tr class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <td class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
                         <!-- Column 1: Workshops -->
+                        <?php
+                        $sql = "select * from workshops where Status = 'Scheduled'";
+                        $result = $db->query($sql);
+                        $records = array();
+                        while ($row = $result->fetch_assoc()) {
+                            $records[] = $row;
+                        };
+                        $num_workshops = count($records);
+                        ?>
                         <h5 style="padding-left: 15px;">Scheduled Workshops</h5>
                         <?php
+                        for ($index = 0; $index < $num_workshops; $index++) {
+                            $name = $records[$index]["Name"];
+                            $lecturer = $records[$index]["Lecturer"];
+                            $date = $records[$index]["Date"];
+                            $time = $records[$index]["Time"];
+                            $venue = $records[$index]["Venue"];
+                            $image_url = $records[$index]["ImageURL"];
+                            $brochure_url = $records[$index]["BrochureURL"];
+                            $status = $records[$index]["Status"];
+
+                            if ($brochure_url == 'NULL') {
+                                if ($index % 2 == 0) {
+                                    echo "<div class='row margin-30px-bottom'>";
+                                    echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
+                                    echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                    echo "<div class='blog-post bg-white'>";
+                                    echo "<div class='blog-post-images overflow-hidden'>";
+                                    echo "<a href='$brochure_url' target='_blank'>";
+                                    echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                    echo "</div>";
+                                    echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                    echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                    echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                    echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                    echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                    echo "<div class='margin-10px-top' align='center'>";
+                                    echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                    echo "</div></div></div></div>";
+                                } else {
+                                    echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                    echo "<div class='blog-post bg-white'>";
+                                    echo "<div class='blog-post-images overflow-hidden'>";
+                                    echo "<a href='$brochure_url' target='_blank'>";
+                                    echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                    echo "</div>";
+                                    echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                    echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                    echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                    echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                    echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                    echo "<div class='margin-10px-top' align='center'>";
+                                    echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                    echo "</div></div></div></div>";
+                                    echo "</div></div>";
+                                }
+                            } else {
+                                if ($index % 2 == 0) {
+                                    echo "<div class='row margin-30px-bottom'>";
+                                    echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
+                                    echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                    echo "<div class='blog-post bg-white'>";
+                                    echo "<div class='blog-post-images overflow-hidden'>";
+                                    echo "<a target='_blank'>";
+                                    echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                    echo "</div>";
+                                    echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                    echo "<a target='_blank' class='post-title display-block'>$name</a>";
+                                    echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                    echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                    echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                    echo "<div class='margin-10px-top' align='center'>";
+                                    echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                    echo "</div></div></div></div>";
+                                } else {
+                                    echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                    echo "<div class='blog-post bg-white'>";
+                                    echo "<div class='blog-post-images overflow-hidden'>";
+                                    echo "<a target='_blank'>";
+                                    echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                    echo "</div>";
+                                    echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                    echo "<a target='_blank' class='post-title display-block'>$name</a>";
+                                    echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                    echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                    echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                    echo "<div class='margin-10px-top' align='center'>";
+                                    echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                    echo "</div></div></div></div>";
+                                    echo "</div></div>";
+                                }
+                                
+                            }
                             
+                        }
+                        if ($num_workshops % 2 != 0) {
+                            echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                            echo "<div class='blog-post bg-white'>";
+                            echo "<div class='blog-post-images overflow-hidden'>";
+                            echo "</div></div></div>";
+                            echo "</div></div>";
+                        } 
+                        
                         ?>
-                        <div class="row">
+                        <h5 style="padding-left: 15px; margin-top: 35px;">Coming Soon</h5>
+                        <div class="row margin-30px-bottom">
                             <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                                     <div class="blog-post bg-white">
@@ -184,15 +286,15 @@
                                                 <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
                                             </a>
                                         </div>
-                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                            <div class="blog-hover-color"></div>
-                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Effective Negotiations</a>
+                                        <div class="post-details inner-match-height padding-15px-all">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="post-title display-block">Effective Negotiations</a>
                                             <div class="author">
-                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
+                                                <span class="text-medium-gray text-uppercase display-inline-block" style="font-size: 14px; font-weight: 400;">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
                                             </div>
-                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                            <div class="margin-20px-top" align="center">
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-10px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong>
+                                                12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-10px-top" align="center">
                                                 <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
                                             </div>
                                         </div>
@@ -201,75 +303,80 @@
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                                     <div class="blog-post bg-white">
                                         <div class="blog-post-images overflow-hidden">
-                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank">
                                                 <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
                                             </a>
                                         </div>
-                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                            <div class="blog-hover-color"></div>
-                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Storytelling to Land Your Job and Grant</a>
+                                        <div class="post-details inner-match-height padding-15px-all">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="post-title display-block">Effective Negotiations</a>
                                             <div class="author">
-                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Ms. Dasha Rettew</a></span>
+                                                <span class="text-medium-gray text-uppercase display-inline-block" style="font-size: 14px; font-weight: 400;">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
                                             </div>
-                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                            <p align="justify"><strong>Date:</strong> October 12 &amp; 26, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                            <div class="margin-20px-top" align="center">
-                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/dasha-rettew-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-10px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong>
+                                                12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-10px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
-                        <h5 style="padding-left: 15px;">Coming Soon</h5>
-                        <div class="row">
+                        <div class="row margin-30px-bottom">
                             <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                                     <div class="blog-post bg-white">
                                         <div class="blog-post-images overflow-hidden">
-                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank">
                                                 <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
                                             </a>
                                         </div>
-                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                            <div class="blog-hover-color"></div>
-                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Decision Making and Leadership</a>
+                                        <div class="post-details inner-match-height padding-15px-all">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="post-title display-block">Effective Negotiations</a>
                                             <div class="author">
-                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Justin G. Bull</a></span>
+                                                <span class="text-medium-gray text-uppercase display-inline-block" style="font-size: 14px; font-weight: 400;">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
                                             </div>
-                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                            <p align="justify"><strong>Date:</strong> November 9 &amp; 23, 2021 <br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                            <div class="margin-20px-top" align="center">
-                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/justin-g-bull-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-10px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong>
+                                                12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-10px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: hidden; animation-name: none;">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                                     <div class="blog-post bg-white">
                                         <div class="blog-post-images overflow-hidden">
-                                            <a href="javascript:void(0);" target="_blank">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank">
                                                 <img src="./images/workshop.jpg" alt="PhD Professional Development Workshop" data-no-retina="">
                                             </a>
                                         </div>
-                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                            <div class="blog-hover-color"></div>
-                                            <a href="javascript:void(0);" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray display-block md-width-100 margin-5px-bottom">Coming Soon!</a>
+                                        <div class="post-details inner-match-height padding-15px-all">
+                                            <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" target="_blank" class="post-title display-block">Effective Negotiations</a>
                                             <div class="author">
-                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">NYU Tandon </a></span>
+                                                <span class="text-medium-gray text-uppercase display-inline-block" style="font-size: 14px; font-weight: 400;">by <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#!" class="text-medium-gray">Prof. Perry Atwal</a></span>
                                             </div>
-                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb"></div>
-                                            <p align="justify"><strong>Date:</strong> December 7 &amp; 21, 2021<br><strong>Time:</strong> 12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
-                                            <div class="margin-20px-top" align="center">
-                                                <a href="javascript:void(0);" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled" target="_blank">Brochure</a>
+                                            <div class="separator-line-horrizontal-full bg-medium-gray margin-10px-tb"></div>
+                                            <p align="justify"><strong>Date:</strong> September 14 &amp; 28, 2021<br><strong>Time:</strong>
+                                                12 - 2 PM<br><strong>Venue:</strong> NYU Zoom</p>
+                                            <div class="margin-10px-top" align="center">
+                                                <a href="http://pd4phd.engineering.nyu.edu/pdf/perry-atwal-f2021.pdf" class="btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded" target="_blank">Brochure</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </td>
                     <td class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="vertical-align: top;">
+                        <!-- Register -->
+                        <div class="row">
+                            <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register</a></div>
+                        </div>
                         <!-- Column 2: Inner page links, Notification, and Register -->
                         <div class="row margin-30px-top">
                             <div class="col-md-10 col-sm-12 center-col">
@@ -285,15 +392,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Register -->
-                        <div class="row margin-30px-top">
-                            <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register</a></div>
-                        </div>
+
                     </td>
                 </tr>
             </table>
-
-
         </div>
     </section>
 
