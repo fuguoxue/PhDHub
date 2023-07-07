@@ -504,7 +504,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 /* dropdown style 1 */
 .dropdown-style-1 .btn {color: #fff; font-size: 11px; padding: 0; margin: 0; background: transparent; border: none; font-weight:normal}
 .dropdown-style-1 .btn:hover, .custom-dropdown btn:focus {color: #57068c;}
-.dropdown-style-1 .dropdown-menu {margin-top: 2px; min-width: 130px; border-radius:0; border: none; z-index: 444; right: 0; left:auto;}
+.dropdown-style-1 .dropdown-menu {margin-top: 2px; min-width: 130px; border-radius:0 0 5px 5px; border: 10px; z-index: 444; right: 0; left:auto;}
 .dropdown-style-1 .dropdown-menu > li > a {padding: 6px 15px; font-size: 12px}
 .dropdown-style-1 .dropdown-menu > li > a:hover,.dropdown-style-1 .dropdown-menu > li > a:focus {background: #ededed}
 
@@ -2114,7 +2114,7 @@ a.likes-count span {position: relative; top: -1px}
 
 /* icon hover effect style 8 */
 .social-icon-style-8 ul li a {text-align: center; width: auto; height: auto}
-.social-icon-style-8 a:hover { color: #57068c;}
+/* .social-icon-style-8 a:hover {opacity: 0.7;} */
 
 /* icon hover effect style 9 */
 .social-icon-style-9 ul li a {text-align: center; width: auto; height: auto}
@@ -2354,9 +2354,6 @@ header .bootsnav .dropdown .caret {
   border-left: 5px solid transparent;
   -webkit-transition: all 0.2s ease;
   transition: all 0.3s ease;
-}
-header .bootsnav .dropdown:hover{
-  color: #fff;
 }
 
 header.sticky .navbar-scroll-fixed-top {position: fixed; top: 0; width: 100%; left: 0; transition-duration: 0.3s; -webkit-transition-duration: 0.3s; -moz-transition-duration: 0.3s; -ms-transition-duration: 0.3s; -o-transition-duration: 0.3s;}
@@ -4381,3 +4378,27 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
 
 .internal-link-list ul > li a { font-size: 20px;}
 .internal-link-list ul {padding-left: 15px;}
+
+/* Style all font awesome icons */
+.small-icon .small-icon-li {
+  padding: 1px;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: transparent;
+  width: 25px;
+  margin-left: 10px;
+}
+
+/* Add a hover effect if you want */
+.small-icon .small-icon-li:hover {
+  background-color: rgba(87, 6, 140, 0.7);
+}
+.small-icon .small-icon-li a {
+  color: #57068c;
+}
+.small-icon .small-icon-li:hover a {
+  color: #e0e0e0;
+}

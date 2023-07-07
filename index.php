@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./css/bootsnav.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/et-line-icons.css">
-    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/justified-gallery.min.css">
     <link rel="stylesheet" href="./css/layers.css">
     <link rel="stylesheet" href="./css/magnific-popup.css">
@@ -163,14 +163,14 @@
         <div class="container">
             <!-- Title -->
             <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12 text-center center-col">
-                    <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray" style="margin-bottom: 100px; margin-top: 50px">Leadership Workshops</h3>
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center center-col">
+                    <h3 class="font-weight-700 letter-spacing-minus-1 text-extra-dark-gray margin-seven-bottom margin-five-top">Leadership Workshops</h3>
                 </div>
             </div>
             <!-- Two columns -->
-            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 center-col">
                 <!-- Column 1: Workshops -->
-                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">                    
+                <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">                    
                     <?php
                     $sql = "select * from workshops where Status = 'Scheduled'";
                     $result = $db->query($sql);
@@ -180,7 +180,7 @@
                     };
                     $num_workshops = count($records);
                     ?>
-                    <h5 style="padding-left: 15px;" id="scheduled">Scheduled Workshops</h5>
+                    <h5 class="padding-15px-left sm-text-center xs-text-center" id="scheduled">Scheduled Workshops</h5>
                     <?php
                     for ($index = 0; $index < $num_workshops; $index++) {
                         $name = $records[$index]["Name"];
@@ -194,9 +194,9 @@
 
                         if ($brochure_url == 'NULL') {
                             if ($index % 2 == 0) {
-                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='row'>";
                                 echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a href='#' target='_blank'>";
@@ -209,9 +209,10 @@
                                 echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
                                 echo "<div class='margin-10px-top' align='center'>";
                                 echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
-                                echo "</div></div></div></div>";
+                                echo "</div></div></div>";
+                                echo "<div style='height: 30px'></div></div>";
                             } else {
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a href='#' target='_blank'>";
@@ -229,9 +230,9 @@
                             }
                         } else {
                             if ($index % 2 == 0) {
-                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='row'>";
                                 echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a href='$brochure_url' target='_blank'>";
@@ -246,7 +247,7 @@
                                 echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
                                 echo "</div></div></div></div>";
                             } else {
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a target='_blank'>";
@@ -265,7 +266,7 @@
                         }
                     }
                     if ($num_workshops % 2 != 0) {
-                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                         echo "<div class='blog-post bg-white'>";
                         echo "<div class='blog-post-images overflow-hidden'>";
                         echo "</div></div></div>";
@@ -282,7 +283,7 @@
                     };
                     $num_workshops = count($records);
                     ?>
-                    <h5 style="padding-left: 15px; margin-top: 35px;" id="coming-soon">Coming Soon</h5>
+                    <h5 class="padding-15px-left sm-text-center xs-text-center" id="coming-soon">Coming Soon</h5>
                     <?php
                     for ($index = 0; $index < $num_workshops; $index++) {
                         $name = $records[$index]["Name"];
@@ -298,7 +299,7 @@
                             if ($index % 2 == 0) {
                                 echo "<div class='row margin-30px-bottom'>";
                                 echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a href='$brochure_url' target='_blank'>";
@@ -313,7 +314,7 @@
                                 echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
                                 echo "</div></div></div></div>";
                             } else {
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a href='$brochure_url' target='_blank'>";
@@ -333,7 +334,7 @@
                             if ($index % 2 == 0) {
                                 echo "<div class='row margin-30px-bottom'>";
                                 echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a target='_blank'>";
@@ -348,7 +349,7 @@
                                 echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
                                 echo "</div></div></div></div>";
                             } else {
-                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
                                 echo "<a target='_blank'>";
@@ -367,7 +368,7 @@
                         }
                     }
                     if ($num_workshops % 2 != 0) {
-                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom' style='visibility: visible; animation-name: fadeInUp;'>";
                         echo "<div class='blog-post bg-white'>";
                         echo "<div class='blog-post-images overflow-hidden'>";
                         echo "</div></div></div>";
@@ -376,11 +377,11 @@
                     ?>
                 </div>
                 <!-- Column 2: Internal Links, Register, and Notification -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-20px-lr" style="vertical-align: top; ">                    
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 padding-35px-lr" style="vertical-align: top; ">                    
                     <!-- Internal Links -->
                     <div class="row center-col internal-link-list">
-                        <h6>On This Page: </h6>
-                        <ul>
+                        <h6 style="font-size: 20px; margin-bottom: 10px; padding-left: 0;">On This Page: </h6>
+                        <ul style="font-size: 20px;">
                             <li><a href="scheduled">Scheduled Workshops</a></li>
                             <li><a href="coming-soon">Coming Soon</a></li>
                         </ul>
@@ -430,21 +431,21 @@
                 </div>
             </div>
         </div>
-        <div class="bg-light-gray-footer padding-20px-tb text-center xs-padding-20px-tb">
+        <div class="bg-light-gray-footer padding-15px-tb text-center xs-padding-20px-tb">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 text-left text-medium xs-text-center">
                         <div class="social-icon-style-8 display-inline-block">
                             <ul class="small-icon no-margin-bottom no-margin-top">
                                 <li class="text-large text-extra-dark-gray font-weight-600">FOLLOW US</li>
-                                <li><a class="facebook text-dark-gray" href="https://www.facebook.com/nyutandon" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                                <li><a class="twitter text-dark-gray" href="https://twitter.com/nyutandon" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a class="instagram text-dark-gray" href="https://www.instagram.com/nyutandon/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a class="youtube text-dark-gray" href="https://www.youtube.com/nyutandon" target="_blank"><i class="fab fa-youtube no-margin-right" aria-hidden="true"></i></a></li>
+                                <li class="small-icon-li"><a class="fa fa-facebook" href="https://www.facebook.com/nyutandon" target="_blank"></a></li>
+                                <li class="small-icon-li"><a class="fa fa-twitter" href="https://twitter.com/nyutandon" target="_blank" style="width: 16px; height: 16px;"></a></li>
+                                <li class="small-icon-li"><a class="fa fa-instagram" href="https://www.instagram.com/nyutandon/" target="_blank" style="width: 16px; height: 16px;"></a></li>
+                                <li class="small-icon-li"><a class="fa fa-youtube" href="https://www.youtube.com/nyutandon" target="_blank" style="width: 16px; height: 16px;"></a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-medium xs-text-center">
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">
                         <a href="#" class="text-dark-gray font-weight-500">© NYU Tandon 2023</a>
                     </div>
                 </div>
