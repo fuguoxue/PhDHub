@@ -93,15 +93,15 @@
             <div class="container-fluid nav-header-container">
                 <div class="row">
                     <!-- PhD Logo -->
-                    <div class="col-lg-2 col-md-2 col-xs-8 no-padding-left">
+                    <div class="col-lg-2 col-md-4 col-xs-8 no-padding-left">
                         <a href="http://pd4phd.engineering.nyu.edu/" title="Fellowship Opportunities" class="logo"><img src="./images/pd4phd.png" class="logo-light default" alt="Fellowship Opportunities" data-no-retina=""></a>
                     </div>
                     <!-- Tandon Logo -->
-                    <div class="col-lg-2 sm-width-auto text-right no-padding-right" id="tandon-logo">
+                    <div class="col-lg-2 text-right no-padding-right" id="tandon-logo">
                         <a href="https://engineering.nyu.edu/" title="NYU Tandon School of Engineering" class="logo" target="_blank"><img src="./images/logo.png" class="logo-light default" alt="NYU Tandon School of Engineering" data-no-retina=""></a>
                     </div>
                     <!-- Menu Bar -->
-                    <div class="col-lg-8 col-md-10 col-xs-4 accordion-menu xs-no-padding-right" style="padding-right: 0;">
+                    <div class="col-lg-8 col-md-8 col-xs-4 accordion-menu xs-no-padding-right" style="padding-right: 0;">
                         <!-- Hamburger Menu -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
                             <span class="sr-only">toggle navigation</span>
@@ -167,255 +167,247 @@
                     <h3 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray" style="margin-bottom: 100px; margin-top: 50px">Leadership Workshops</h3>
                 </div>
             </div>
-            <!-- Two columns in a table -->
-            <table>
-                <tr class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <td class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-                        <!-- Column 1: Workshops -->
-                        <?php
-                        $sql = "select * from workshops where Status = 'Scheduled'";
-                        $result = $db->query($sql);
-                        $records = array();
-                        while ($row = $result->fetch_assoc()) {
-                            $records[] = $row;
-                        };
-                        $num_workshops = count($records);
-                        ?>
-                        <h5 style="padding-left: 15px;" id="scheduled">Scheduled Workshops</h5>
-                        <?php
-                            for ($index = 0; $index < $num_workshops; $index++) {
-                                $name = $records[$index]["Name"];
-                                $lecturer = $records[$index]["Lecturer"];
-                                $date = $records[$index]["Date"];
-                                $time = $records[$index]["Time"];
-                                $venue = $records[$index]["Venue"];
-                                $image_url = $records[$index]["ImageURL"];
-                                $brochure_url = $records[$index]["BrochureURL"];
-                                $status = $records[$index]["Status"];
+            <!-- Two columns -->
+            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- Column 1: Workshops -->
+                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">                    
+                    <?php
+                    $sql = "select * from workshops where Status = 'Scheduled'";
+                    $result = $db->query($sql);
+                    $records = array();
+                    while ($row = $result->fetch_assoc()) {
+                        $records[] = $row;
+                    };
+                    $num_workshops = count($records);
+                    ?>
+                    <h5 style="padding-left: 15px;" id="scheduled">Scheduled Workshops</h5>
+                    <?php
+                    for ($index = 0; $index < $num_workshops; $index++) {
+                        $name = $records[$index]["Name"];
+                        $lecturer = $records[$index]["Lecturer"];
+                        $date = $records[$index]["Date"];
+                        $time = $records[$index]["Time"];
+                        $venue = $records[$index]["Venue"];
+                        $image_url = $records[$index]["ImageURL"];
+                        $brochure_url = $records[$index]["BrochureURL"];
+                        $status = $records[$index]["Status"];
 
-                                if ($brochure_url == 'NULL') {
-                                    if ($index % 2 == 0) {
-                                        echo "<div class='row margin-30px-bottom'>";
-                                        echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a href='#' target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='#' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                    } else {
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a href='#' target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='#' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                        echo "</div></div>";
-                                    }
-                                } else {
-                                    if ($index % 2 == 0) {
-                                        echo "<div class='row margin-30px-bottom'>";
-                                        echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a href='$brochure_url' target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='$brochure_url' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                    } else {
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a target='_blank'>";
-                                        echo "<img href='$brochure_url' src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='$brochure_url' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                        echo "</div></div>";
-                                    }
-                                    
-                                }
-                                
-                            }
-                            if ($num_workshops % 2 != 0) {
+                        if ($brochure_url == 'NULL') {
+                            if ($index % 2 == 0) {
+                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
                                 echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
-                                echo "</div></div></div>";
-                                echo "</div></div>";
-                            } 
-                        
-                        ?>
-                        <!-- Get Coming Soon Workshops -->
-                        <?php
-                        $sql = "select * from workshops where Status = 'Upcoming'";
-                        $result = $db->query($sql);
-                        $records = array();
-                        while ($row = $result->fetch_assoc()) {
-                            $records[] = $row;
-                        };
-                        $num_workshops = count($records);
-                        ?>
-                        <h5 style="padding-left: 15px; margin-top: 35px;" id="coming-soon">Coming Soon</h5>
-                        <?php
-                            for ($index = 0; $index < $num_workshops; $index++) {
-                                $name = $records[$index]["Name"];
-                                $lecturer = $records[$index]["Lecturer"];
-                                $date = $records[$index]["Date"];
-                                $time = $records[$index]["Time"];
-                                $venue = $records[$index]["Venue"];
-                                $image_url = $records[$index]["ImageURL"];
-                                $brochure_url = $records[$index]["BrochureURL"];
-                                $status = $records[$index]["Status"];
-
-                                if ($brochure_url == NULL) {
-                                    if ($index % 2 == 0) {
-                                        echo "<div class='row margin-30px-bottom'>";
-                                        echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a href='$brochure_url' target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                    } else {
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a href='$brochure_url' target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                        echo "</div></div>";
-                                    }
-                                } else {
-                                    if ($index % 2 == 0) {
-                                        echo "<div class='row margin-30px-bottom'>";
-                                        echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                    } else {
-                                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
-                                        echo "<div class='blog-post bg-white'>";
-                                        echo "<div class='blog-post-images overflow-hidden'>";
-                                        echo "<a target='_blank'>";
-                                        echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
-                                        echo "</div>";
-                                        echo "<div class='post-details inner-match-height padding-15px-all'>";
-                                        echo "<a target='_blank' class='post-title display-block'>$name</a>";
-                                        echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
-                                        echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
-                                        echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
-                                        echo "<div class='margin-10px-top' align='center'>";
-                                        echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
-                                        echo "</div></div></div></div>";
-                                        echo "</div></div>";
-                                    }
-                                    
-                                }
-                                
-                            }
-                            if ($num_workshops % 2 != 0) {
+                                echo "<a href='#' target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='#' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                            } else {
                                 echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
                                 echo "<div class='blog-post bg-white'>";
                                 echo "<div class='blog-post-images overflow-hidden'>";
-                                echo "</div></div></div>";
+                                echo "<a href='#' target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='#' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
                                 echo "</div></div>";
-                            } 
-                        
-                        ?>
-                    </td>
-                    <td class="row col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-20px-lr" style="vertical-align: top; ">
-                        <!-- Column 2: Internal Links, Register, and Notification -->
-                        <!-- Internal Links -->
-                        <div class="center-col internal-link-list">
-                            <h6>On This Page: </h6>
-                            <ul>
-                                <li><a href="scheduled">Scheduled Workshops</a></li>    
-                                <li><a href="coming-soon">Coming Soon</a></li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Register -->
-                        <div class="row">
-                            <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register</a></div>
-                        </div>
-                        
-                        <div class="row margin-30px-top">
-                            <div class="col-md-12 col-sm-12 center-col">
-                                <div class="alert alert-info alert-dismissable">
-                                    <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                    <p align="justify"><strong>Kindly note: </strong>
-                                    </p>
-                                    <ul>
-                                        <li>The students will need to attend all the workshops in the track they choose.</li>
-                                        <li>Registration limited to first 50 doctoral students.</li>
-                                    </ul>
-                                    <p></p>
-                                </div>
+                            }
+                        } else {
+                            if ($index % 2 == 0) {
+                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a href='$brochure_url' target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='$brochure_url' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                            } else {
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a target='_blank'>";
+                                echo "<img href='$brochure_url' src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='$brochure_url' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                                echo "</div></div>";
+                            }
+                        }
+                    }
+                    if ($num_workshops % 2 != 0) {
+                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                        echo "<div class='blog-post bg-white'>";
+                        echo "<div class='blog-post-images overflow-hidden'>";
+                        echo "</div></div></div>";
+                        echo "</div></div>";
+                    }
+                    ?>
+                    <!-- Get Coming Soon Workshops -->
+                    <?php
+                    $sql = "select * from workshops where Status = 'Upcoming'";
+                    $result = $db->query($sql);
+                    $records = array();
+                    while ($row = $result->fetch_assoc()) {
+                        $records[] = $row;
+                    };
+                    $num_workshops = count($records);
+                    ?>
+                    <h5 style="padding-left: 15px; margin-top: 35px;" id="coming-soon">Coming Soon</h5>
+                    <?php
+                    for ($index = 0; $index < $num_workshops; $index++) {
+                        $name = $records[$index]["Name"];
+                        $lecturer = $records[$index]["Lecturer"];
+                        $date = $records[$index]["Date"];
+                        $time = $records[$index]["Time"];
+                        $venue = $records[$index]["Venue"];
+                        $image_url = $records[$index]["ImageURL"];
+                        $brochure_url = $records[$index]["BrochureURL"];
+                        $status = $records[$index]["Status"];
+
+                        if ($brochure_url == NULL) {
+                            if ($index % 2 == 0) {
+                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a href='$brochure_url' target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                            } else {
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a href='$brochure_url' target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a href='$brochure_url' target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='$brochure_url' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded disabled' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                                echo "</div></div>";
+                            }
+                        } else {
+                            if ($index % 2 == 0) {
+                                echo "<div class='row margin-30px-bottom'>";
+                                echo "<div class='container col-lg-12 col-md-12 col-sm-12 col-xs-12'>";
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                            } else {
+                                echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                                echo "<div class='blog-post bg-white'>";
+                                echo "<div class='blog-post-images overflow-hidden'>";
+                                echo "<a target='_blank'>";
+                                echo "<img src='$image_url' alt='$name' data-no-retina=''></a>";
+                                echo "</div>";
+                                echo "<div class='post-details inner-match-height padding-15px-all'>";
+                                echo "<a target='_blank' class='post-title display-block'>$name</a>";
+                                echo "<div class='author'><span class='text-medium-gray text-uppercase display-inline-block' style='font-size: 14px; font-weight: 400;'>by <a href='#' class='text-medium-gray'>$lecturer</a></span></div>";
+                                echo "<div class='separator-line-horrizontal-full bg-medium-gray margin-10px-tb'></div>";
+                                echo "<p align='justify'><strong>Date:</strong> $date<br><strong>Time:</strong> $time<br><strong>Venue:</strong> $venue</p>";
+                                echo "<div class='margin-10px-top' align='center'>";
+                                echo "<a href='#' class='btn btn-deep-pink btn-small align-top sm-no-margin-right btn-rounded' target='_blank'>Brochure</a>";
+                                echo "</div></div></div></div>";
+                                echo "</div></div>";
+                            }
+                        }
+                    }
+                    if ($num_workshops % 2 != 0) {
+                        echo "<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 blog-post-style5 last-paragraph-no-margin xs-margin-30px-bottom wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>";
+                        echo "<div class='blog-post bg-white'>";
+                        echo "<div class='blog-post-images overflow-hidden'>";
+                        echo "</div></div></div>";
+                        echo "</div></div>";
+                    }
+                    ?>
+                </div>
+                <!-- Column 2: Internal Links, Register, and Notification -->
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-20px-lr" style="vertical-align: top; ">                    
+                    <!-- Internal Links -->
+                    <div class="row center-col internal-link-list">
+                        <h6>On This Page: </h6>
+                        <ul>
+                            <li><a href="scheduled">Scheduled Workshops</a></li>
+                            <li><a href="coming-soon">Coming Soon</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Register -->
+                    <div class="row">
+                        <div align="center"><a href="https://forms.gle/eri3Wfz4xoHJ8Roj6" class="btn btn-deep-pink btn-extra-large align-top sm-no-margin-right" target="_blank">Register</a></div>
+                    </div>
+
+                    <!-- Notification -->
+                    <div class="row margin-30px-top">
+                        <div class="col-md-12 col-sm-12 center-col">
+                            <div class="alert alert-info alert-dismissable">
+                                <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <p align="justify"><strong>Kindly note: </strong>
+                                </p>
+                                <ul>
+                                    <li>The students will need to attend all the workshops in the track they choose.</li>
+                                    <li>Registration limited to first 50 doctoral students.</li>
+                                </ul>
+                                <p></p>
                             </div>
                         </div>
-
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
