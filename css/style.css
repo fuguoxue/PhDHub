@@ -4378,8 +4378,9 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
 	color: #6f6f6f !important;
 }
 
-.internal-link-list ul > li a { font-size: 20px;}
-.internal-link-list ul {padding-left: 15px;}
+/* .internal-link-list ul {padding-left: 15px;} */
+/* .internal-link-list ul > li {padding-left: 15px;} */
+.internal-link-list ul > li a { padding-bottom: 10px;}
 
 /* Style all font awesome icons */
 .small-icon .small-icon-li {
@@ -4400,8 +4401,4 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
 
 .footer-contact:hover a {
   border-bottom: 1px solid #57068C;
-}
-
-.side-nav li{
-  padding-bottom: 10px;
 }

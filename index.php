@@ -172,7 +172,7 @@
                 <!-- Column 1: Workshops -->
                 <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">                    
                     <?php
-                    $sql = "select * from workshops where Status = 'Scheduled'";
+                    $sql = "select * from workshops where Status = 'Scheduled' order by Year asc, StartMonth asc, StartDate asc";
                     $result = $db->query($sql);
                     $records = array();
                     while ($row = $result->fetch_assoc()) {
@@ -275,7 +275,7 @@
                     ?>
                     <!-- Get Upcoming Workshops -->
                     <?php
-                    $sql = "select * from workshops where Status = 'Upcoming'";
+                    $sql = "select * from workshops where Status = 'Upcoming' order by Year asc, StartMonth asc, StartDate asc";
                     $result = $db->query($sql);
                     $records = array();
                     while ($row = $result->fetch_assoc()) {
@@ -379,9 +379,9 @@
                 <!-- Column 2: Internal Links, Register, and Notification -->
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 padding-35px-lr" style="vertical-align: top; ">                    
                     <!-- Internal Links -->
-                    <div class="row center-col internal-link-list">
-                        <h6 style="font-size: 20px; margin-bottom: 10px; padding-left: 0;">On This Page: </h6>
-                        <ul class="side-nav text-extra-large">
+                    <div class="row center-col">
+                        <h6 class="text-extra-large margin-10px-bottom no-padding-left">Content on This Page: </h6>
+                        <ul class="text-large internal-link-list padding-20px-left">
                             <li><a href="scheduled">Scheduled Workshops</a></li>
                             <li><a href="upcoming">Upcoming Workshops</a></li>
                         </ul>
