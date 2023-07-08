@@ -4388,7 +4388,6 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
   text-align: center;
   vertical-align: center;
   text-decoration: none;
-  border-radius: 5px;
   background-color: transparent;
   width: 25px;
   margin-left: 10px;
@@ -4396,11 +4395,13 @@ font-family: 'Montserrat', sans-serif; font-size:14px; color:#212121; font-weigh
 
 /* Add a hover effect if you want */
 .small-icon .small-icon-li:hover {
-  background-color: rgba(87, 6, 140, 0.7);
+  border-bottom: 1px solid #57068C;
 }
-.small-icon .small-icon-li a {
-  color: #57068c;
+
+.footer-contact:hover a {
+  border-bottom: 1px solid #57068C;
 }
-.small-icon .small-icon-li:hover a {
-  color: #e0e0e0;
+
+.side-nav li{
+  padding-bottom: 10px;
 }

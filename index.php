@@ -273,7 +273,7 @@
                         echo "</div></div>";
                     }
                     ?>
-                    <!-- Get Coming Soon Workshops -->
+                    <!-- Get Upcoming Workshops -->
                     <?php
                     $sql = "select * from workshops where Status = 'Upcoming'";
                     $result = $db->query($sql);
@@ -283,7 +283,7 @@
                     };
                     $num_workshops = count($records);
                     ?>
-                    <h5 class="padding-15px-left sm-text-center xs-text-center" id="coming-soon">Coming Soon</h5>
+                    <h5 class="padding-15px-left sm-text-center xs-text-center" id="upcoming">Upcoming Workshops</h5>
                     <?php
                     for ($index = 0; $index < $num_workshops; $index++) {
                         $name = $records[$index]["Name"];
@@ -381,9 +381,9 @@
                     <!-- Internal Links -->
                     <div class="row center-col internal-link-list">
                         <h6 style="font-size: 20px; margin-bottom: 10px; padding-left: 0;">On This Page: </h6>
-                        <ul style="font-size: 20px;">
+                        <ul class="side-nav text-extra-large">
                             <li><a href="scheduled">Scheduled Workshops</a></li>
-                            <li><a href="coming-soon">Coming Soon</a></li>
+                            <li><a href="upcoming">Upcoming Workshops</a></li>
                         </ul>
                     </div>
 
@@ -399,7 +399,7 @@
                                 <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 <p align="justify"><strong>Kindly note: </strong>
                                 </p>
-                                <ul>
+                                <ul class="padding-15px-left">
                                     <li>The students will need to attend all the workshops in the track they choose.</li>
                                     <li>Registration limited to first 50 doctoral students.</li>
                                 </ul>
@@ -417,15 +417,21 @@
         <div class="footer-widget-area padding-two-tb xs-padding-20px-tb">
             <div class="container">
                 <div class="row equalize xs-equalize-auto">
-                    <div class="col-md-6 col-sm-6 col-xs-12 widget sm-margin-30px-bottom xs-text-center" style="height: 200px;">
+                    <div class="col-md-4 col-sm-4 col-xs-12 widget sm-margin-30px-bottom xs-text-center" style="height: 200px;">
                         <div align="center"><img class="footer-logo margin-30px-bottom" src="./images/logo-color.png" alt="NYU Tandon School of Engineering" data-no-retina=""></div>
                         <div align="center"><img class="footer-logo-2 margin-10px-bottom" src="./images/nyu-tandon.png" alt="NYU Tandon School of Engineering" data-no-retina=""></div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 widget padding-45px-left sm-padding-15px-left xs-text-center" style="height: 200px;">
+                    <div class="col-md-4 col-sm-4 col-xs-12 widget padding-45px-left sm-padding-15px-left sm-margin-30px-bottom xs-text-center" style="height: 200px;">
                         <div align="center">
-                            <div class="widget-title text-extra-dark-gray text-uppercase margin-20px-bottom font-weight-600">Contact</div>
+                            <div class="widget-title text-extra-dark-gray text-uppercase margin-20px-bottom font-weight-600 text-large">Address</div>
                             <div class=" display-block width-80">Tandon School of Engineering<br>New York University<br>6 MetroTech Center<br>Brooklyn, NY 11201</div>
-                            <div class="display-block width-80"><strong>Phone:</strong> +1 (646) 997 - 3600</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 widget padding-45px-left sm-padding-15px-left xs-text-center" style="height: 200px;">
+                        <div align="center">
+                            <div class="widget-title text-extra-dark-gray text-uppercase margin-20px-bottom font-weight-600 text-large">Contact</div>
+                            <div class="display-block width-80 footer-contact"><strong><a href="https://engineering.nyu.edu/contact-us">Contact Us</a></strong></div>
+                            <div class="display-block width-80 footer-contact"><strong><a href="tel:+1 (646) 997-3600">+1 (646) 997 - 3600</a></strong></div>
                         </div>
                     </div>
                 </div>
@@ -434,18 +440,20 @@
         <div class="bg-light-gray-footer padding-15px-tb text-center xs-padding-20px-tb">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 text-left text-medium xs-text-center">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-left text-medium xs-text-center sm-margin-15px-bottom">
                         <div class="social-icon-style-8 display-inline-block">
                             <ul class="small-icon no-margin-bottom no-margin-top">
                                 <li class="text-large text-extra-dark-gray font-weight-600">FOLLOW US</li>
-                                <li class="small-icon-li"><a class="fa fa-facebook" href="https://www.facebook.com/nyutandon" target="_blank"></a></li>
-                                <li class="small-icon-li"><a class="fa fa-twitter" href="https://twitter.com/nyutandon" target="_blank" style="width: 16px; height: 16px;"></a></li>
-                                <li class="small-icon-li"><a class="fa fa-instagram" href="https://www.instagram.com/nyutandon/" target="_blank" style="width: 16px; height: 16px;"></a></li>
-                                <li class="small-icon-li"><a class="fa fa-youtube" href="https://www.youtube.com/nyutandon" target="_blank" style="width: 16px; height: 16px;"></a></li>
+                                <li class="small-icon-li"><a href="https://www.facebook.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-facebook.png" alt="icon-facebook"></a></li>
+                                <li class="small-icon-li"><a href="https://twitter.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-twitter.png" alt="icon-twitter"></a></li>
+                                <li class="small-icon-li"><a href="https://www.instagram.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-instagram.png" alt="icon-instagram"></a></li>
+                                <li class="small-icon-li"><a href="https://www.youtube.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-youtube.png" alt="icon-youtube"></a></li>
+                                <li class="small-icon-li"><a href="https://www.linkedin.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-linkedin.png" alt="icon-linkedin"></a></li>
+                                <li class="small-icon-li"><a href="https://www.tiktok.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-tiktok.png" alt="icon-tiktok"></a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right text-small xs-text-center">
                         <a href="#" class="text-dark-gray font-weight-500">© NYU Tandon 2023</a>
                     </div>
                 </div>
