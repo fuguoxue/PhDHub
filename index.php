@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Leadership Workshops - Professional Development for PhD Students | NYU Tandon School of Engineering</title>
 
-    <!--Favicon-->
-    <link rel="icon" type="image/gif" href="http://pd4phd.engineering.nyu.edu/images/favicon.png">
+    <!-- Favicon
+    <link rel="icon" type="image/gif" href="http://pd4phd.engineering.nyu.edu/images/favicon.png"> -->
 
     <!--Stylesheets-->
-    <link rel="stylesheet" href="./css/animate.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
     <link rel="stylesheet" href="./css/bootsnav.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/et-line-icons.css">
