@@ -504,8 +504,8 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 /* dropdown style 1 */
 .dropdown-style-1 .btn {color: #fff; font-size: 11px; padding: 0; margin: 0; background: transparent; border: none; font-weight:normal}
 .dropdown-style-1 .btn:hover, .custom-dropdown btn:focus {color: #57068c;}
-.dropdown-style-1 .dropdown-menu {margin-top: 2px; min-width: 130px; border-radius:0 0 5px 5px; border: 10px; z-index: 444; right: 0; left:auto;}
-.dropdown-style-1 .dropdown-menu > li > a {padding: 6px 15px; font-size: 12px}
+.dropdown-style-1 .dropdown-menu {margin-top: 2px; z-index: 444; right: 0; left:auto;}
+.dropdown-style-1 .dropdown-menu > li > a {padding: 6px 0; font-size: 14px}
 .dropdown-style-1 .dropdown-menu > li > a:hover,.dropdown-style-1 .dropdown-menu > li > a:focus {background: #ededed}
 
 /* ===================================

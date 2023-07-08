@@ -115,7 +115,7 @@
                                 <ul id="accordion" class="nav navbar-nav navbar-center no-margin" data-in="fadeIn" data-out="fadeOut">
                                     <li class="dropdown simple-dropdown" style="text-align:center;">
                                         <a href="http://pd4phd.engineering.nyu.edu/tracks">Tracks&nbsp;<span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu" style="top: 72px;">
+                                        <ul class="dropdown-menu" role="menu">
                                             <li class="dropdown"><a class="dropdown-toggle" style="font-size:14px;" data-toggle="dropdown" href="http://pd4phd.engineering.nyu.edu/tracks/digital-literacy.php">Digital Literacy for Research</a></li>
                                         </ul>
                                     </li>
