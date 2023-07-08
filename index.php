@@ -399,7 +399,7 @@
                                 <a href="http://pd4phd.engineering.nyu.edu/tracks/leadership.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 <p align="justify"><strong>Kindly note: </strong>
                                 </p>
-                                <ul class="padding-15px-left">
+                                <ul class="padding-15px-left" style="text-align: justify;">
                                     <li>The students will need to attend all the workshops in the track they choose.</li>
                                     <li>Registration limited to first 50 doctoral students.</li>
                                 </ul>
@@ -430,7 +430,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 widget padding-45px-left sm-padding-15px-left xs-text-center" style="height: 200px;">
                         <div align="center">
                             <div class="widget-title text-extra-dark-gray text-uppercase margin-20px-bottom font-weight-600 text-large">Contact</div>
-                            <div class="display-block width-80 footer-contact"><strong><a href="https://engineering.nyu.edu/contact-us">Contact Us</a></strong></div>
+                            <div class="display-block width-80 footer-contact"><strong><a href="http://pd4phd.engineering.nyu.edu/contact/">Contact Us</a></strong></div>
                             <div class="display-block width-80 footer-contact"><strong><a href="tel:+1 (646) 997-3600">+1 (646) 997 - 3600</a></strong></div>
                         </div>
                     </div>
@@ -440,10 +440,10 @@
         <div class="bg-light-gray-footer padding-15px-tb text-center xs-padding-20px-tb">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-left text-medium xs-text-center sm-margin-15px-bottom">
-                        <div class="social-icon-style-8 display-inline-block">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-left text-medium xs-text-center sm-margin-15px-bottom display-inline">
+                        <div class="social-icon-style-8">
                             <ul class="small-icon no-margin-bottom no-margin-top">
-                                <li class="text-large text-extra-dark-gray font-weight-600">FOLLOW US</li>
+                                <li class="text-large text-extra-dark-gray font-weight-600" style="vertical-align:middle;">FOLLOW US</li>
                                 <li class="small-icon-li"><a href="https://www.facebook.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-facebook.png" alt="icon-facebook"></a></li>
                                 <li class="small-icon-li"><a href="https://twitter.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-twitter.png" alt="icon-twitter"></a></li>
                                 <li class="small-icon-li"><a href="https://www.instagram.com/nyutandon" target="_blank"><img src="http://engineering.nyu.edu/themes/custom/tandon/images/icon-instagram.png" alt="icon-instagram"></a></li>
@@ -453,8 +453,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right text-small xs-text-center">
-                        <a href="#" class="text-dark-gray font-weight-500">© NYU Tandon 2023</a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right text-small xs-text-center display-inline">
+                        <a href="#" class="text-dark-gray font-weight-500" style="vertical-align:middle;">© NYU Tandon 2023</a>
                     </div>
                 </div>
             </div>
